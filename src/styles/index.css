@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --color-background: #0f172a;
+  --color-card: #1e293b;
+  --color-primary: #38bdf8;
+  --color-success: #22c55e;
+  --color-text: #e2e8f0;
+  --color-muted: #94a3b8;
+}
+
+@layer base {
+  html {
+    min-height: 100%;
+    background: var(--color-background);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: theme("fontFamily.sans");
+    font-feature-settings:
+      "cv02",
+      "cv03",
+      "cv04",
+      "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  p {
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .dashboard-focus-ring {
+    @apply outline-none ring-2 ring-dashboard-primary ring-offset-2 ring-offset-dashboard-background;
+  }
+}
