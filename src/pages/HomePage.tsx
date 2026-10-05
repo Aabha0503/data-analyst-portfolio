@@ -1,6 +1,7 @@
 import {
   AboutSection,
   AnalyticsDashboardSection,
+  CertificationsSection,
   ContactSection,
   FeaturedProjectsSection,
   HeroSection,
@@ -18,6 +19,7 @@ export function HomePage() {
       <FeaturedProjectsSection />
       <AnalyticsDashboardSection />
       <TimelineSection />
+      <CertificationsSection />
       <ResumeSection />
       <ContactSection />
     </>

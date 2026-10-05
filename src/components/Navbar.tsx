@@ -4,6 +4,7 @@ import {
   ChartPie,
   FileText,
   FolderKanban,
+  GraduationCap,
   Mail,
   Menu,
   Route,
@@ -20,6 +21,7 @@ const navItems = [
   { label: "Projects", href: "#projects", icon: FolderKanban },
   { label: "Analytics", href: "#analytics", icon: ChartPie },
   { label: "Timeline", href: "#timeline", icon: Route },
+  { label: "Certifications", href: "#certifications", icon: GraduationCap },
   { label: "Resume", href: "#resume", icon: FileText },
   { label: "Contact", href: "#contact", icon: Mail }
 ];
@@ -31,6 +33,7 @@ const sectionIds = [
   "projects",
   "analytics",
   "timeline",
+  "certifications",
   "resume",
   "contact"
 ];
