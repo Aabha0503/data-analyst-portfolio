@@ -1,54 +1,64 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import type { ReactNode } from "react";
 import {
   ArrowUpRight,
-  BarChart3,
   BriefcaseBusiness,
+  ExternalLink,
   Github,
-  LineChart,
   MonitorDot,
-  ShoppingCart,
+  TrendingUp,
   UsersRound
 } from "lucide-react";
-import { Button, Section } from "@/components";
+import { Section } from "@/components";
 
 const projects = [
   {
-    title: "Employee Attrition Analysis",
-    label: "Workforce Intelligence",
+    title: "Employee Attrition Analysis & Prediction Dashboard",
+    label: "HR Analytics · Machine Learning",
     icon: UsersRound,
     description:
-      "A people analytics report designed to identify attrition drivers, risk segments, and retention opportunities across departments.",
-    techStack: ["Python", "Pandas", "Power BI", "HR Analytics"],
-    insights: ["Risk by department", "Tenure patterns", "Satisfaction signals"],
-    metric: "16.8%",
-    metricLabel: "Attrition rate",
-    accent: "primary"
+      "An end-to-end HR analytics project focused on understanding employee attrition patterns and building a predictive classification model.",
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Tableau"],
+    link: "https://github.com/Aabha0503/Employee-Attrition-Analysis-Prediction-Dashboard",
+    linkLabel: "GitHub",
+    accent: "primary",
+    linkType: "github"
   },
   {
-    title: "Real-Time Monitoring System",
-    label: "Operational Analytics",
+    title: "Concept Drift & Anomaly Detection System",
+    label: "ML Monitoring · Anomaly Detection",
     icon: MonitorDot,
     description:
-      "A monitoring dashboard concept for tracking live system health, incident signals, and operational performance indicators.",
-    techStack: ["React", "Recharts", "SQL", "APIs"],
-    insights: ["Live KPI tracking", "Alert signals", "Uptime visibility"],
-    metric: "99.2%",
-    metricLabel: "System uptime",
-    accent: "success"
+      "A real-time monitoring system for detecting concept drift, data distribution changes, and anomalous behavior in time-series data.",
+    techStack: ["Python", "Streamlit", "Pandas", "NumPy", "Scikit-learn", "Plotly"],
+    link: "https://github.com/Aabha0503/concept-drift-engine",
+    linkLabel: "GitHub",
+    accent: "success",
+    linkType: "github"
   },
   {
-    title: "Superstore Sales Analysis",
-    label: "Sales Performance",
-    icon: ShoppingCart,
+    title: "Time-Series Forecasting using SARIMAX",
+    label: "Time-Series · Forecasting",
+    icon: TrendingUp,
     description:
-      "A business intelligence report for analyzing sales trends, profit performance, category mix, and regional opportunities.",
-    techStack: ["Excel", "Tableau", "SQL", "Data Cleaning"],
-    insights: ["Profit leakage", "Regional trends", "Category performance"],
-    metric: "$2.3M",
-    metricLabel: "Sales reviewed",
-    accent: "primary"
+      "A time-series forecasting project using SARIMAX to model temporal patterns and generate hourly forecasts.",
+    techStack: ["Python", "Pandas", "Statsmodels", "Matplotlib", "Seaborn"],
+    link: "https://www.kaggle.com/code/aabhaaroratanu/hourly-forecast-of-goog-twitter-vol-using-sarimax",
+    linkLabel: "View Project",
+    accent: "primary",
+    linkType: "external"
+  },
+  {
+    title: "Predictive Analysis of Residential Property Prices",
+    label: "Predictive Analytics · Regression",
+    icon: TrendingUp,
+    description:
+      "A machine-learning project focused on analyzing residential property data and predicting property prices.",
+    techStack: ["Python", "Pandas", "Scikit-learn"],
+    link: "https://www.kaggle.com/code/aabhaaroratanu/predictive-analysis-of-residential-property-prices",
+    linkLabel: "View Project",
+    accent: "success",
+    linkType: "external"
   }
 ];
 
@@ -90,8 +100,8 @@ export function FeaturedProjectsSection() {
         </div>
 
         <p className="max-w-xl text-sm leading-7 text-dashboard-muted sm:text-base">
-          Premium project cards structured like executive report previews, with
-          summary metrics, stack context, and decision-ready insights.
+          Selected analytics and machine-learning projects with clear scope,
+          tools, and external project links.
         </p>
       </div>
 
@@ -113,16 +123,6 @@ export function FeaturedProjectsSection() {
               variants={cardVariants}
               whileHover={{ y: -7 }}
             >
-              <div className="p-4 pb-0">
-                <ReportPreview
-                  icon={<Icon aria-hidden="true" size={21} />}
-                  isSuccess={isSuccess}
-                  metric={project.metric}
-                  metricLabel={project.metricLabel}
-                  title={project.label}
-                />
-              </div>
-
               <div className="flex flex-1 flex-col p-5">
                 <div className="mb-4 flex items-start justify-between gap-4">
                   <div>
@@ -165,47 +165,25 @@ export function FeaturedProjectsSection() {
                   </div>
                 </div>
 
-                <div className="mt-5">
-                  <p className="text-xs font-semibold uppercase text-dashboard-subtle">
-                    Key Insights
-                  </p>
-                  <div className="mt-3 grid gap-2">
-                    {project.insights.map((insight) => (
-                      <div
-                        className="flex items-center gap-3 rounded-component border border-dashboard-border bg-dashboard-background/60 px-3 py-2.5"
-                        key={insight}
-                      >
-                        <span
-                          className={[
-                            "h-2 w-2 rounded-sm",
-                            isSuccess
-                              ? "bg-dashboard-success"
-                              : "bg-dashboard-primary"
-                          ].join(" ")}
-                        />
-                        <span className="text-sm font-medium text-dashboard-muted">
-                          {insight}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-auto grid gap-3 pt-6 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
-                  <Button
-                    className="w-full"
-                    icon={<Github aria-hidden="true" size={17} />}
-                    variant="secondary"
+                <div className="mt-auto pt-6">
+                  <a
+                    className={[
+                      "inline-flex h-10 w-full items-center justify-center gap-2 rounded-component px-4 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background",
+                      isSuccess
+                        ? "bg-dashboard-success text-slate-950 hover:bg-green-400 active:bg-green-300"
+                        : "border border-dashboard-border bg-dashboard-surface text-dashboard-text hover:bg-dashboard-surfaceMuted"
+                    ].join(" ")}
+                    href={project.link}
+                    rel="noreferrer"
+                    target="_blank"
                   >
-                    GitHub
-                  </Button>
-                  <Button
-                    className="w-full"
-                    icon={<BarChart3 aria-hidden="true" size={17} />}
-                    variant={isSuccess ? "success" : "primary"}
-                  >
-                    Case Study
-                  </Button>
+                    {project.linkType === "github" ? (
+                      <Github aria-hidden="true" size={17} />
+                    ) : (
+                      <ExternalLink aria-hidden="true" size={17} />
+                    )}
+                    {project.linkLabel}
+                  </a>
                 </div>
               </div>
             </motion.article>
@@ -213,104 +191,5 @@ export function FeaturedProjectsSection() {
         })}
       </motion.div>
     </Section>
-  );
-}
-
-type ReportPreviewProps = {
-  icon: ReactNode;
-  isSuccess: boolean;
-  metric: string;
-  metricLabel: string;
-  title: string;
-};
-
-function ReportPreview({
-  icon,
-  isSuccess,
-  metric,
-  metricLabel,
-  title
-}: ReportPreviewProps) {
-  const accentClass = isSuccess ? "bg-dashboard-success" : "bg-dashboard-primary";
-  const textClass = isSuccess ? "text-dashboard-success" : "text-dashboard-primary";
-
-  return (
-    <div className="relative aspect-[16/10] overflow-hidden rounded-component border border-dashboard-border bg-dashboard-background/80 p-4">
-      <div
-        aria-label={`${title} dashboard report preview image`}
-        className="pointer-events-none absolute inset-0"
-        role="img"
-      />
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <span
-            className={[
-              "flex h-10 w-10 items-center justify-center rounded-component border border-dashboard-border bg-dashboard-surface",
-              textClass
-            ].join(" ")}
-          >
-            {icon}
-          </span>
-          <div>
-            <p className="text-xs font-semibold uppercase text-dashboard-subtle">
-              BI Report
-            </p>
-            <p className="mt-1 text-sm font-bold text-dashboard-text">{title}</p>
-          </div>
-        </div>
-        <span className="rounded-component bg-dashboard-surface px-2.5 py-1 text-xs font-semibold text-dashboard-muted">
-          Draft
-        </span>
-      </div>
-
-      <div className="grid h-[calc(100%-3.5rem)] gap-3 sm:grid-cols-[0.8fr_1.2fr]">
-        <div className="rounded-component border border-dashboard-border bg-dashboard-surface/80 p-3">
-          <p className="text-xs font-semibold uppercase text-dashboard-subtle">
-            {metricLabel}
-          </p>
-          <p className="mt-2 text-2xl font-bold text-dashboard-text">{metric}</p>
-          <div className="mt-4 grid gap-2">
-            {[62, 84, 48].map((width) => (
-              <span
-                className="h-2 rounded-sm bg-dashboard-border"
-                key={width}
-                style={{ width: `${width}%` }}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-component border border-dashboard-border bg-dashboard-surface/80 p-3">
-          <div className="flex h-full items-end gap-2">
-            {[44, 68, 52, 78, 64, 88].map((height, index) => (
-              <motion.span
-                animate={{ scaleY: 1 }}
-                className={[
-                  "flex-1 origin-bottom rounded-sm",
-                  index % 2 === 0 ? "bg-dashboard-border" : accentClass
-                ].join(" ")}
-                initial={{ scaleY: 0.35 }}
-                key={`${height}-${index}`}
-                style={{ height: `${height}%` }}
-                transition={{
-                  duration: 0.55,
-                  delay: 0.12 + index * 0.04,
-                  ease: "easeOut"
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <LineChart
-        aria-hidden="true"
-        className={[
-          "absolute bottom-4 right-4 opacity-20",
-          textClass
-        ].join(" ")}
-        size={56}
-      />
-    </div>
   );
 }

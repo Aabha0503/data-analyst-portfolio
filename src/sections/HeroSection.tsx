@@ -1,38 +1,20 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { ArrowRight, Download, Mail, TrendingUp } from "lucide-react";
-import {
-  Area,
-  AreaChart,
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis
-} from "recharts";
 import { Button, Section } from "@/components";
 
-const revenueData = [
-  { month: "Jan", value: 38 },
-  { month: "Feb", value: 44 },
-  { month: "Mar", value: 41 },
-  { month: "Apr", value: 58 },
-  { month: "May", value: 64 },
-  { month: "Jun", value: 72 }
-];
-
-const segmentData = [
-  { name: "A", value: 42 },
-  { name: "B", value: 56 },
-  { name: "C", value: 48 },
-  { name: "D", value: 68 },
-  { name: "E", value: 62 }
-];
-
 const kpis = [
-  { label: "Revenue", value: "$84.2K", trend: "+18.4%" },
-  { label: "Conversion", value: "12.8%", trend: "+4.1%" },
-  { label: "Retention", value: "91%", trend: "+7.6%" }
+  { label: "Projects Completed", value: "4", trend: "Projects" },
+  { label: "Internship Experience", value: "1", trend: "Internship" },
+  { label: "Analytics Dashboards", value: "2", trend: "Dashboards" },
+  { label: "Forecasting Models", value: "1", trend: "Model" }
+];
+
+const currentFocusItems = [
+  "SQL Analytics",
+  "Feature Engineering",
+  "KPI Reporting",
+  "Tableau Dashboard"
 ];
 
 const containerVariants: Variants = {
@@ -49,6 +31,17 @@ const itemVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
 };
+
+function scrollToSection(sectionId: string) {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+}
+
+function downloadResume() {
+  const link = document.createElement("a");
+  link.href = "/resume.pdf";
+  link.download = "Aabha-Arora-Resume.pdf";
+  link.click();
+}
 
 export function HeroSection() {
   return (
@@ -69,7 +62,7 @@ export function HeroSection() {
             variants={itemVariants}
           >
             <TrendingUp aria-hidden="true" size={16} />
-            Aspiring Data Analyst
+            Data Analyst
           </motion.p>
 
           <motion.h1
@@ -80,22 +73,37 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
+            className="mt-4 max-w-xl text-base font-semibold text-dashboard-primary sm:text-lg"
+            variants={itemVariants}
+          >
+            SQL • Python • Tableau • Excel • Machine Learning
+          </motion.p>
+
+          <motion.p
             className="mt-6 max-w-xl text-lg leading-8 text-dashboard-muted sm:text-xl"
             variants={itemVariants}
           >
-            Transforming raw data into actionable insights through data
-            analysis, dashboarding, and business intelligence.
+            Data Analyst with practical experience in analytics,
+            visualization, predictive modeling, and business reporting through
+            an industry internship and real-world analytics projects.
+            Passionate about transforming raw data into meaningful business
+            insights.
           </motion.p>
 
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row"
             variants={itemVariants}
           >
-            <Button icon={<ArrowRight aria-hidden="true" size={18} />} size="lg">
+            <Button
+              icon={<ArrowRight aria-hidden="true" size={18} />}
+              onClick={() => scrollToSection("projects")}
+              size="lg"
+            >
               View Projects
             </Button>
             <Button
               icon={<Download aria-hidden="true" size={18} />}
+              onClick={downloadResume}
               size="lg"
               variant="secondary"
             >
@@ -103,6 +111,7 @@ export function HeroSection() {
             </Button>
             <Button
               icon={<Mail aria-hidden="true" size={18} />}
+              onClick={() => scrollToSection("contact")}
               size="lg"
               variant="ghost"
             >
@@ -132,10 +141,10 @@ function AnalyticsMockup() {
         <div className="mb-5 flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-medium text-dashboard-muted">
-              Analytics Overview
+              Portfolio Overview
             </p>
             <h2 className="mt-1 text-xl font-bold text-dashboard-text">
-              Performance Dashboard
+              Analytics Snapshot
             </h2>
           </div>
           <span className="rounded-component bg-dashboard-success/15 px-3 py-1 text-sm font-semibold text-dashboard-success">
@@ -168,86 +177,37 @@ function AnalyticsMockup() {
         </div>
 
         <div className="mt-4 grid gap-4 lg:grid-cols-[1.3fr_0.7fr]">
-          <div className="h-64 rounded-component border border-dashboard-border bg-dashboard-background/60 p-4">
+          <div className="h-64 rounded-component border border-dashboard-border bg-dashboard-background/60 p-4 lg:col-span-2">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-sm font-semibold text-dashboard-text">
-                Monthly Growth
+                Current Focus
               </h3>
               <span className="text-xs font-medium text-dashboard-muted">
-                6 months
+                In Progress
               </span>
             </div>
-            <ResponsiveContainer height="82%" width="100%">
-              <AreaChart data={revenueData}>
-                <defs>
-                  <linearGradient id="growthFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop
-                      offset="5%"
-                      stopColor="#38BDF8"
-                      stopOpacity={0.48}
-                    />
-                    <stop
-                      offset="95%"
-                      stopColor="#38BDF8"
-                      stopOpacity={0.02}
-                    />
-                  </linearGradient>
-                </defs>
-                <XAxis
-                  axisLine={false}
-                  dataKey="month"
-                  tick={{ fill: "#94A3B8", fontSize: 12 }}
-                  tickLine={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    background: "#1E293B",
-                    border: "1px solid #334155",
-                    borderRadius: "8px",
-                    color: "#E2E8F0"
-                  }}
-                  cursor={{ stroke: "#38BDF8", strokeOpacity: 0.35 }}
-                />
-                <Area
-                  dataKey="value"
-                  fill="url(#growthFill)"
-                  stroke="#38BDF8"
-                  strokeWidth={3}
-                  type="monotone"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
+            <div className="grid h-[82%] content-start gap-3">
+              <p className="text-2xl font-bold text-dashboard-text">
+                Sales & Customer Analytics Platform
+              </p>
+              <div className="grid gap-2">
+                {currentFocusItems.map((item) => (
+                  <div
+                    className="flex items-center gap-3 rounded-component border border-dashboard-border bg-dashboard-surface/80 px-3 py-2.5"
+                    key={item}
+                  >
+                    <span className="text-sm font-semibold text-dashboard-success">
+                      ✓
+                    </span>
+                    <span className="text-sm font-medium text-dashboard-muted">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="h-64 rounded-component border border-dashboard-border bg-dashboard-background/60 p-4">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-dashboard-text">
-                Segments
-              </h3>
-              <span className="text-xs font-medium text-dashboard-success">
-                +12%
-              </span>
-            </div>
-            <ResponsiveContainer height="82%" width="100%">
-              <BarChart data={segmentData}>
-                <XAxis dataKey="name" hide />
-                <Tooltip
-                  contentStyle={{
-                    background: "#1E293B",
-                    border: "1px solid #334155",
-                    borderRadius: "8px",
-                    color: "#E2E8F0"
-                  }}
-                  cursor={{ fill: "rgba(56, 189, 248, 0.08)" }}
-                />
-                <Bar
-                  dataKey="value"
-                  fill="#22C55E"
-                  radius={[6, 6, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
         </div>
       </section>
     </motion.div>

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Activity, Database, LineChart, Target } from "lucide-react";
+import { Activity, BarChart3, Code2, Database } from "lucide-react";
 import { Card, Section } from "@/components";
 
 const summaryStats = [
-  { label: "Focus", value: "Analytics", icon: LineChart },
-  { label: "Method", value: "Insight-led", icon: Target },
-  { label: "Core", value: "Data", icon: Database }
+  { label: "SQL", value: "Advanced Queries & Data Analysis", icon: Database },
+  { label: "Python", value: "EDA • Machine Learning • Automation", icon: Code2 },
+  { label: "Tableau", value: "Dashboards & Business Visualization", icon: BarChart3 }
 ];
 
 export function AboutSection() {
@@ -43,11 +43,11 @@ export function AboutSection() {
             className="transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70"
           >
             <p className="text-base leading-8 text-dashboard-muted sm:text-lg">
-              Aspiring Data Analyst with a strong interest in turning complex
-              datasets into clear, decision-ready insights. Skilled in analysis,
-              dashboarding, visualization, and business intelligence workflows
-              that help teams understand performance, spot trends, and act with
-              confidence.
+              Data Analyst with practical experience using SQL, Python,
+              Tableau, machine learning, and statistical analysis to solve
+              analytics problems. I work on predictive modeling, forecasting,
+              anomaly detection, and business reporting that turns raw data into
+              clear findings and useful business insights.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
