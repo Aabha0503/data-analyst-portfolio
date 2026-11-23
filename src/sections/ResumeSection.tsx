@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Download, FileText, LineChart, ShieldCheck } from "lucide-react";
 import { Card, Section } from "@/components";
+import { resumePath } from "@/data";
 
 const resumeHighlights = [
   "Data analysis and BI dashboarding",
@@ -58,14 +59,25 @@ export function ResumeSection() {
                   </div>
                 </div>
 
-                <a
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-component bg-dashboard-primary px-4 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background"
-                  download
-                  href="/resume.pdf"
-                >
-                  <Download aria-hidden="true" size={17} />
-                  Download
-                </a>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <a
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-component border border-dashboard-border bg-dashboard-surface px-4 text-sm font-semibold text-dashboard-text transition-colors hover:bg-dashboard-surfaceMuted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background"
+                    href={resumePath}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <FileText aria-hidden="true" size={17} />
+                    View Resume
+                  </a>
+                  <a
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-component bg-dashboard-primary px-4 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background"
+                    download="Aabha_Arora_Resume.pdf"
+                    href={resumePath}
+                  >
+                    <Download aria-hidden="true" size={17} />
+                    Download Resume
+                  </a>
+                </div>
               </div>
             </div>
 

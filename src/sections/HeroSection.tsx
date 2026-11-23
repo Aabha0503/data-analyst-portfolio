@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { ArrowRight, Download, Mail, TrendingUp } from "lucide-react";
 import { Button, Section } from "@/components";
+import { resumePath } from "@/data";
 
 const kpis = [
   { label: "Projects Completed", value: "4", trend: "Projects" },
@@ -36,11 +37,8 @@ function scrollToSection(sectionId: string) {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
 }
 
-function downloadResume() {
-  const link = document.createElement("a");
-  link.href = "/resume.pdf";
-  link.download = "Aabha-Arora-Resume.pdf";
-  link.click();
+function openResume() {
+  window.open(resumePath, "_blank", "noopener,noreferrer");
 }
 
 export function HeroSection() {
@@ -103,7 +101,7 @@ export function HeroSection() {
             </Button>
             <Button
               icon={<Download aria-hidden="true" size={18} />}
-              onClick={downloadResume}
+              onClick={openResume}
               size="lg"
               variant="secondary"
             >
