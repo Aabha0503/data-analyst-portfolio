@@ -11,6 +11,7 @@ export type SkillCategory = {
   title: string;
   icon: LucideIcon;
   accent: string;
+  fullWidth?: boolean;
   skills: string[];
 };
 
@@ -19,7 +20,7 @@ export const skillCategories: SkillCategory[] = [
     title: "Programming & Databases",
     icon: Code2,
     accent: "text-dashboard-primary",
-    skills: ["Python", "SQL", "R (Basic)", "Java", "C++", "MySQL"]
+    skills: ["Python (Pandas, NumPy)", "SQL", "MySQL", "R (Basic)", "Java", "C++"]
   },
   {
     title: "Data Analytics & Statistics",
@@ -41,7 +42,7 @@ export const skillCategories: SkillCategory[] = [
       "MAE",
       "RMSE",
       "MAPE",
-      "R-Squared"
+      "R²"
     ]
   },
   {
@@ -73,11 +74,12 @@ export const skillCategories: SkillCategory[] = [
     title: "Tools & Technologies",
     icon: LineChart,
     accent: "text-dashboard-primary",
+    fullWidth: true,
     skills: [
       "Advanced Excel",
       "Pivot Tables",
       "Pivot Charts",
-      "XLOOKUP/VLOOKUP",
+      "XLOOKUP / VLOOKUP",
       "INDEX-MATCH",
       "Power Query",
       "Jupyter Notebook",

@@ -35,7 +35,7 @@ export function SkillsSection() {
             Technical Skills
           </p>
           <h2 className="mt-2 text-3xl font-bold text-dashboard-text sm:text-4xl">
-            Analytics Toolkit
+            Skills Matrix
           </h2>
         </div>
       </div>
@@ -52,7 +52,10 @@ export function SkillsSection() {
 
           return (
             <motion.article
-              className="rounded-component border border-dashboard-border bg-dashboard-surface p-4 shadow-dashboard transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70 sm:p-5"
+              className={[
+                "rounded-component border border-dashboard-border bg-dashboard-surface p-4 shadow-dashboard transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70 sm:p-5",
+                category.fullWidth ? "md:col-span-2" : ""
+              ].join(" ")}
               key={category.title}
               variants={cardVariants}
               whileHover={{ y: -4 }}
