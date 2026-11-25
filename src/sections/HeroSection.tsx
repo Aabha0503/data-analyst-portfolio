@@ -41,12 +41,13 @@ export function HeroSection() {
           initial={{ opacity: 0, x: -36 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         >
-          <div className="overflow-hidden rounded-component border border-dashboard-border bg-dashboard-surface p-2 shadow-dashboard">
+          <div className="mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-full border-2 border-dashboard-border bg-dashboard-surface p-2 shadow-dashboard">
             <img
               alt="Aabha Arora, Data Analyst"
-              className="h-auto w-full rounded-component object-contain"
+              className="h-full w-full rounded-full object-cover"
               height="1440"
               src="/images/aabha-profile.png"
+              style={{ objectPosition: "center 20%" }}
               width="1080"
             />
           </div>
@@ -58,22 +59,15 @@ export function HeroSection() {
           initial="hidden"
           variants={containerVariants}
         >
-          <motion.div
+          <motion.p
             className="mb-4 flex items-center gap-4"
             variants={itemVariants}
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              className="h-20 w-20 shrink-0 rounded-full border-2 border-dashboard-primary/60 object-cover shadow-dashboard"
-              src="/images/aabha-profile.png"
-              style={{ objectPosition: "center 18%" }}
-            />
-            <p className="inline-flex items-center gap-2 rounded-component border border-dashboard-border bg-dashboard-surface px-3 py-2 text-sm font-semibold text-dashboard-primary">
+            <span className="inline-flex items-center gap-2 rounded-component border border-dashboard-border bg-dashboard-surface px-3 py-2 text-sm font-semibold text-dashboard-primary">
               <TrendingUp aria-hidden="true" size={16} />
               Data Analyst | Machine Learning Enthusiast
-            </p>
-          </motion.div>
+            </span>
+          </motion.p>
 
           <motion.h1
             className="text-5xl font-bold leading-tight tracking-normal text-dashboard-text sm:text-6xl lg:text-7xl"
