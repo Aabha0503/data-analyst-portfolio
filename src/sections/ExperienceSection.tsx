@@ -47,21 +47,36 @@ export function ExperienceSection() {
         viewport={{ once: true, amount: 0.18 }}
         whileInView="show"
       >
+        <motion.div
+          aria-hidden="true"
+          className="absolute bottom-5 left-5 top-5 w-px bg-dashboard-border"
+          initial={{ scaleY: 0 }}
+          style={{ originY: 0 }}
+          transition={{ duration: 0.85, ease: "easeOut" }}
+          viewport={{ once: true }}
+          whileInView={{ scaleY: 1 }}
+        />
+
         {experience.map((item) => {
           const Icon = item.icon;
 
           return (
             <motion.article
-              className="relative rounded-component border border-dashboard-border bg-dashboard-surface p-5 shadow-dashboard transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70 sm:p-6"
+              className="relative rounded-component border border-dashboard-border bg-dashboard-surface p-5 pl-16 shadow-dashboard transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70 sm:p-6 sm:pl-16"
               key={`${item.company}-${item.position}`}
               variants={itemVariants}
             >
+              <motion.div
+                className="absolute left-0 top-5 z-10 flex h-10 w-10 items-center justify-center rounded-component border border-dashboard-border bg-dashboard-background text-dashboard-primary"
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                whileHover={{ scale: 1.08 }}
+              >
+                <Icon aria-hidden="true" size={18} />
+              </motion.div>
+
               <div className="grid gap-5 lg:grid-cols-[0.7fr_1.3fr] lg:gap-8">
                 <div>
                   <div className="flex items-start gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-component border border-dashboard-border bg-dashboard-background/70 text-dashboard-primary">
-                      <Icon aria-hidden="true" size={20} />
-                    </span>
                     <div>
                       <p className="text-xs font-semibold uppercase text-dashboard-primary">
                         Internship

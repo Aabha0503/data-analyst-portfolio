@@ -2,27 +2,23 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   BarChart3,
   BriefcaseBusiness,
-  ChartPie,
   FileText,
   FolderKanban,
   GraduationCap,
   Mail,
   Menu,
-  Route,
+  School,
   Sparkles,
-  UserRound,
   X
 } from "lucide-react";
 import { useState } from "react";
 import { useScrollSpy } from "@/hooks";
 
 const navItems = [
-  { label: "About", href: "#about", icon: UserRound },
   { label: "Skills", href: "#skills", icon: Sparkles },
   { label: "Experience", href: "#experience", icon: BriefcaseBusiness },
+  { label: "Education", href: "#education", icon: School },
   { label: "Projects", href: "#projects", icon: FolderKanban },
-  { label: "Analytics", href: "#analytics", icon: ChartPie },
-  { label: "Timeline", href: "#timeline", icon: Route },
   { label: "Certifications", href: "#certifications", icon: GraduationCap },
   { label: "Resume", href: "#resume", icon: FileText },
   { label: "Contact", href: "#contact", icon: Mail }
@@ -32,10 +28,8 @@ const sectionIds = [
   "home",
   "skills",
   "experience",
-  "about",
+  "education",
   "projects",
-  "analytics",
-  "timeline",
   "certifications",
   "resume",
   "contact"

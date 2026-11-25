@@ -58,13 +58,22 @@ export function HeroSection() {
           initial="hidden"
           variants={containerVariants}
         >
-          <motion.p
-            className="mb-4 inline-flex items-center gap-2 rounded-component border border-dashboard-border bg-dashboard-surface px-3 py-2 text-sm font-semibold text-dashboard-primary"
+          <motion.div
+            className="mb-4 flex items-center gap-4"
             variants={itemVariants}
           >
-            <TrendingUp aria-hidden="true" size={16} />
-            Data Analyst | Machine Learning Enthusiast
-          </motion.p>
+            <img
+              alt=""
+              aria-hidden="true"
+              className="h-20 w-20 shrink-0 rounded-full border-2 border-dashboard-primary/60 object-cover shadow-dashboard"
+              src="/images/aabha-profile.png"
+              style={{ objectPosition: "center 18%" }}
+            />
+            <p className="inline-flex items-center gap-2 rounded-component border border-dashboard-border bg-dashboard-surface px-3 py-2 text-sm font-semibold text-dashboard-primary">
+              <TrendingUp aria-hidden="true" size={16} />
+              Data Analyst | Machine Learning Enthusiast
+            </p>
+          </motion.div>
 
           <motion.h1
             className="text-5xl font-bold leading-tight tracking-normal text-dashboard-text sm:text-6xl lg:text-7xl"

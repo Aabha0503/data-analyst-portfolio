@@ -1,14 +1,12 @@
 import {
-  AboutSection,
-  AnalyticsDashboardSection,
   CertificationsSection,
   ContactSection,
+  EducationSection,
   ExperienceSection,
   FeaturedProjectsSection,
   HeroSection,
   ResumeSection,
-  SkillsSection,
-  TimelineSection
+  SkillsSection
 } from "@/sections";
 
 export function HomePage() {
@@ -17,10 +15,8 @@ export function HomePage() {
       <HeroSection />
       <SkillsSection />
       <ExperienceSection />
-      <AboutSection />
+      <EducationSection />
       <FeaturedProjectsSection />
-      <AnalyticsDashboardSection />
-      <TimelineSection />
       <CertificationsSection />
       <ResumeSection />
       <ContactSection />

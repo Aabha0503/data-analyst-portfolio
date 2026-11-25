@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
 import { Card, Section } from "@/components";
-import { certifications } from "@/data/certifications";
+import { certifications } from "@/data";
 
 const gridVariants: Variants = {
   hidden: { opacity: 0 },
@@ -35,7 +35,7 @@ export function CertificationsSection() {
             Certifications
           </p>
           <h2 className="mt-2 text-3xl font-bold text-dashboard-text sm:text-4xl">
-            Verified Analytics Credentials
+            Certifications & Professional Learning
           </h2>
         </div>
       </div>

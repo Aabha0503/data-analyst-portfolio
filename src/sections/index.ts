@@ -1,10 +1,8 @@
-export { AboutSection } from "./AboutSection";
-export { AnalyticsDashboardSection } from "./AnalyticsDashboardSection";
 export { CertificationsSection } from "./CertificationsSection";
 export { ContactSection } from "./ContactSection";
+export { EducationSection } from "./EducationSection";
 export { ExperienceSection } from "./ExperienceSection";
 export { FeaturedProjectsSection } from "./FeaturedProjectsSection";
 export { HeroSection } from "./HeroSection";
 export { ResumeSection } from "./ResumeSection";
 export { SkillsSection } from "./SkillsSection";
-export { TimelineSection } from "./TimelineSection";

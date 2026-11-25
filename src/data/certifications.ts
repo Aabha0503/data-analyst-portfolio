@@ -28,7 +28,7 @@ export const certifications: Certification[] = [
     icon: Bot
   },
   {
-    name: "Google Data Analytics",
+    name: "Google Data Analytics Professional Certificate",
     provider: "Google · Coursera",
     status: "Completed",
     date: "August 27, 2025",

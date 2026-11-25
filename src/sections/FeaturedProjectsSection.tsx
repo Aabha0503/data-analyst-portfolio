@@ -7,53 +7,7 @@ import {
   Github
 } from "lucide-react";
 import { Section } from "@/components";
-
-const projects = [
-  {
-    title: "Employee Attrition Analysis & Prediction Dashboard",
-    label: "HR Analytics · Machine Learning",
-    description:
-      "An end-to-end HR analytics project focused on understanding employee attrition patterns and building a predictive classification model.",
-    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Tableau"],
-    link: "https://github.com/Aabha0503/Employee-Attrition-Analysis-Prediction-Dashboard",
-    linkLabel: "GitHub",
-    accent: "primary",
-    linkType: "github"
-  },
-  {
-    title: "Concept Drift & Anomaly Detection System",
-    label: "ML Monitoring · Anomaly Detection",
-    description:
-      "A real-time monitoring system for detecting concept drift, data distribution changes, and anomalous behavior in time-series data.",
-    techStack: ["Python", "Streamlit", "Pandas", "NumPy", "Scikit-learn", "Plotly"],
-    link: "https://github.com/Aabha0503/concept-drift-engine",
-    linkLabel: "GitHub",
-    accent: "success",
-    linkType: "github"
-  },
-  {
-    title: "Time-Series Forecasting using SARIMAX",
-    label: "Time-Series · Forecasting",
-    description:
-      "A time-series forecasting project using SARIMAX to model temporal patterns and generate hourly forecasts.",
-    techStack: ["Python", "Pandas", "Statsmodels", "Matplotlib", "Seaborn"],
-    link: "https://www.kaggle.com/code/aabhaaroratanu/hourly-forecast-of-goog-twitter-vol-using-sarimax",
-    linkLabel: "View Project",
-    accent: "primary",
-    linkType: "external"
-  },
-  {
-    title: "Predictive Analysis of Residential Property Prices",
-    label: "Predictive Analytics · Regression",
-    description:
-      "A machine-learning project focused on analyzing residential property data and predicting property prices.",
-    techStack: ["Python", "Pandas", "Scikit-learn"],
-    link: "https://www.kaggle.com/code/aabhaaroratanu/predictive-analysis-of-residential-property-prices",
-    linkLabel: "View Project",
-    accent: "success",
-    linkType: "external"
-  }
-];
+import { projects } from "@/data";
 
 const gridVariants: Variants = {
   hidden: { opacity: 0 },
@@ -126,10 +80,17 @@ export function FeaturedProjectsSection() {
                           : "text-dashboard-primary"
                       ].join(" ")}
                     >
-                      {project.label}
+                        {project.category}
                     </p>
                     <h3 className="mt-2 text-2xl font-bold leading-tight text-dashboard-text">
-                      {project.title}
+                      <a
+                        className="transition-colors hover:text-dashboard-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-surface"
+                        href={project.url}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {project.title}
+                      </a>
                     </h3>
                   </div>
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-component border border-dashboard-border bg-dashboard-background/70 text-dashboard-muted transition-colors duration-300 group-hover:border-dashboard-primary/50 group-hover:text-dashboard-primary">
@@ -146,7 +107,7 @@ export function FeaturedProjectsSection() {
                     Tech Stack
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
+                    {project.technologies.map((tech) => (
                       <span
                         className="rounded-component border border-dashboard-border bg-dashboard-background/70 px-3 py-1.5 text-xs font-semibold text-dashboard-muted"
                         key={tech}
@@ -165,16 +126,17 @@ export function FeaturedProjectsSection() {
                         ? "bg-dashboard-success text-slate-950 hover:bg-green-400 active:bg-green-300"
                         : "border border-dashboard-border bg-dashboard-surface text-dashboard-text hover:bg-dashboard-surfaceMuted"
                     ].join(" ")}
-                    href={project.link}
-                    rel="noreferrer"
+                    aria-label={`View ${project.title}`}
+                    href={project.url}
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
-                    {project.linkType === "github" ? (
+                    {project.platform === "github" ? (
                       <Github aria-hidden="true" size={17} />
                     ) : (
                       <ExternalLink aria-hidden="true" size={17} />
                     )}
-                    {project.linkLabel}
+                    View Project ↗
                   </a>
                 </div>
               </div>

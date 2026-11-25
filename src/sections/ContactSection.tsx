@@ -1,28 +1,8 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { Section } from "@/components";
-
-const contactLinks = [
-  {
-    label: "Email",
-    value: "aabha.arora@example.com",
-    href: "mailto:aabha.arora@example.com",
-    icon: Mail
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/aabhaarora",
-    href: "https://www.linkedin.com/in/aabhaarora",
-    icon: Linkedin
-  },
-  {
-    label: "GitHub",
-    value: "github.com/aabhaarora",
-    href: "https://github.com/aabhaarora",
-    icon: Github
-  }
-];
+import { contactLinks } from "@/data";
 
 const gridVariants: Variants = {
   hidden: { opacity: 0 },
@@ -64,7 +44,7 @@ export function ContactSection() {
       </div>
 
       <motion.div
-        className="grid gap-4 md:grid-cols-3"
+        className="grid gap-4 md:grid-cols-2 xl:grid-cols-4"
         initial="hidden"
         variants={gridVariants}
         viewport={{ once: true, amount: 0.25 }}
@@ -75,11 +55,12 @@ export function ContactSection() {
 
           return (
             <motion.a
-              className="group rounded-component border border-dashboard-border bg-dashboard-surface p-5 shadow-dashboard transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background"
+              aria-label={`${item.label}: ${item.value}`}
+              className="group cursor-pointer rounded-component border border-dashboard-border bg-dashboard-surface p-5 shadow-dashboard transition-colors duration-300 hover:border-dashboard-primary/60 hover:bg-dashboard-surfaceMuted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dashboard-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dashboard-background"
               href={item.href}
               key={item.label}
-              rel="noreferrer"
-              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+              target={item.external ? "_blank" : undefined}
               variants={cardVariants}
               whileHover={{ y: -6 }}
             >
