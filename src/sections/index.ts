@@ -2,6 +2,7 @@ export { AboutSection } from "./AboutSection";
 export { AnalyticsDashboardSection } from "./AnalyticsDashboardSection";
 export { CertificationsSection } from "./CertificationsSection";
 export { ContactSection } from "./ContactSection";
+export { ExperienceSection } from "./ExperienceSection";
 export { FeaturedProjectsSection } from "./FeaturedProjectsSection";
 export { HeroSection } from "./HeroSection";
 export { ResumeSection } from "./ResumeSection";

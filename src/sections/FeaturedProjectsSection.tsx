@@ -4,10 +4,7 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   ExternalLink,
-  Github,
-  MonitorDot,
-  TrendingUp,
-  UsersRound
+  Github
 } from "lucide-react";
 import { Section } from "@/components";
 
@@ -15,7 +12,6 @@ const projects = [
   {
     title: "Employee Attrition Analysis & Prediction Dashboard",
     label: "HR Analytics · Machine Learning",
-    icon: UsersRound,
     description:
       "An end-to-end HR analytics project focused on understanding employee attrition patterns and building a predictive classification model.",
     techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Tableau"],
@@ -27,7 +23,6 @@ const projects = [
   {
     title: "Concept Drift & Anomaly Detection System",
     label: "ML Monitoring · Anomaly Detection",
-    icon: MonitorDot,
     description:
       "A real-time monitoring system for detecting concept drift, data distribution changes, and anomalous behavior in time-series data.",
     techStack: ["Python", "Streamlit", "Pandas", "NumPy", "Scikit-learn", "Plotly"],
@@ -39,7 +34,6 @@ const projects = [
   {
     title: "Time-Series Forecasting using SARIMAX",
     label: "Time-Series · Forecasting",
-    icon: TrendingUp,
     description:
       "A time-series forecasting project using SARIMAX to model temporal patterns and generate hourly forecasts.",
     techStack: ["Python", "Pandas", "Statsmodels", "Matplotlib", "Seaborn"],
@@ -51,7 +45,6 @@ const projects = [
   {
     title: "Predictive Analysis of Residential Property Prices",
     label: "Predictive Analytics · Regression",
-    icon: TrendingUp,
     description:
       "A machine-learning project focused on analyzing residential property data and predicting property prices.",
     techStack: ["Python", "Pandas", "Scikit-learn"],
@@ -113,7 +106,6 @@ export function FeaturedProjectsSection() {
         whileInView="show"
       >
         {projects.map((project) => {
-          const Icon = project.icon;
           const isSuccess = project.accent === "success";
 
           return (

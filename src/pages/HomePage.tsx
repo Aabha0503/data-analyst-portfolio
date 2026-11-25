@@ -3,6 +3,7 @@ import {
   AnalyticsDashboardSection,
   CertificationsSection,
   ContactSection,
+  ExperienceSection,
   FeaturedProjectsSection,
   HeroSection,
   ResumeSection,
@@ -14,8 +15,9 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
       <SkillsSection />
+      <ExperienceSection />
+      <AboutSection />
       <FeaturedProjectsSection />
       <AnalyticsDashboardSection />
       <TimelineSection />

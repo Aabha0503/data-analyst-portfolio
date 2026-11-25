@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import {
   BarChart3,
+  BriefcaseBusiness,
   ChartPie,
   FileText,
   FolderKanban,
@@ -18,6 +19,7 @@ import { useScrollSpy } from "@/hooks";
 const navItems = [
   { label: "About", href: "#about", icon: UserRound },
   { label: "Skills", href: "#skills", icon: Sparkles },
+  { label: "Experience", href: "#experience", icon: BriefcaseBusiness },
   { label: "Projects", href: "#projects", icon: FolderKanban },
   { label: "Analytics", href: "#analytics", icon: ChartPie },
   { label: "Timeline", href: "#timeline", icon: Route },
@@ -28,8 +30,9 @@ const navItems = [
 
 const sectionIds = [
   "home",
-  "about",
   "skills",
+  "experience",
+  "about",
   "projects",
   "analytics",
   "timeline",
