@@ -26,7 +26,8 @@ export const education: EducationRecord[] = [
   {
     title: "Class 12",
     qualification: "Higher Secondary Education",
-    institution: "Tamil High School",
+    institution: "Chennai Senior Secondary School",
+    location: "Thirumazhisai, Tamil Nadu",
     period: "2022",
     resultLabel: "Percentage",
     result: "65%",

@@ -20,6 +20,8 @@ const itemVariants: Variants = {
 };
 
 export function EducationSection() {
+  const visualEducation = [...education].reverse();
+
   return (
     <Section
       aria-label="Education and Academic Journey"
@@ -58,8 +60,9 @@ export function EducationSection() {
         />
 
         <div className="grid gap-5">
-          {education.map((record, index) => {
+          {visualEducation.map((record, index) => {
             const Icon = record.icon;
+            const stageNumber = education.length - index;
 
             return (
               <motion.article
@@ -79,7 +82,7 @@ export function EducationSection() {
                   <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-start">
                     <div>
                       <p className="text-xs font-semibold uppercase text-dashboard-primary">
-                        Stage {index + 1}
+                        Stage {stageNumber}
                       </p>
                       <h3 className="mt-2 text-2xl font-bold text-dashboard-text">
                         {record.title}
